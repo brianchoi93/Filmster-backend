@@ -17,16 +17,24 @@ app.use(express.urlencoded({ extended: true }));
 // Convert json strings to an object and attaches it to req.body
 app.use(express.json());
 // Use cors package to allow connections from all domains
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 
 //=============================================================================
 // Routes
 //=============================================================================
-
+app.get('/', (req, res) => {
+  res.redirect('/api/movies');
+});
 //=============================================================================
 // Start Controllers
 //=============================================================================
+
+const moviesController = require('./controllers/moviesController.js');
+app.use('/api/movies', moviesController);
+
+const commentsController = require('./controllers/commentsController.js');
+app.use('/comments', commentsController);
 
 //=============================================================================
 // End Controllers
