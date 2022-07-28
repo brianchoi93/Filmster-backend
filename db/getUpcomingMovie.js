@@ -3,9 +3,8 @@ const fs = require('fs')
 require("dotenv").config();
 const key = process.env.MOVIEDB_API_KEY;
 
-let baseURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`
+let baseURL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`
 let movieCount = 1
-
 let ids = []
 
 // build array of random ids
@@ -23,12 +22,12 @@ Promise.all(calls)
 .then(success => {
 	let collectedData = success.map(res => res.data)
 	let stringified = JSON.stringify(collectedData)
-	fs.writeFile(__dirname + '/movie.json', stringified, 'utf8', (err) => {
+	fs.writeFile(__dirname + '/upcomingMovie.json', stringified, 'utf8', (err) => {
 		if(err) {
 			console.error(err)
 		}
 		else {
-			console.log(`successfully wrote ${collectedData.length} records to db/movie.json`)
+			console.log(`successfully wrote ${collectedData.length} records to db/upcomingMovie.json`)
 		}
 	}) 
 })
