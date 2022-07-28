@@ -30,8 +30,11 @@ app.get('/', (req, res) => {
 // Start Controllers
 //=============================================================================
 
-const moviesController = require('./controllers/moviesController');
+const moviesController = require('./controllers/moviesController.js');
 app.use('/api/movies', moviesController);
+
+const commentsController = require('./controllers/commentsController.js');
+app.use('/comments', commentsController);
 
 //=============================================================================
 // End Controllers
