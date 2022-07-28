@@ -16,4 +16,17 @@ router.post('/', (req, res, next) => {
     .catch(next);
 });
 
+
+// DELETE
+// DELETE /reviews/:id
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id;
+  Movie.findOne({ 'comments._id': id })
+    .then((movie) => {
+      movie.comments.id(id).remove();
+      return movie.save();
+    })
+    .then(() => res.sendStatus(204))
+    .catch(next);
+});
 module.exports = router;
