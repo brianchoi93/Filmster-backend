@@ -31,10 +31,10 @@ app.get('/', (req, res) => {
 //=============================================================================
 
 const moviesController = require('./controllers/moviesController.js');
-app.use('/api/movies', moviesController);
+app.use('/movies', moviesController);
 
 const upcomingMoviesController = require('./controllers/upcomingController.js');
-app.use('/api/upcoming', upcomingMoviesController);
+app.use('/upcoming', upcomingMoviesController);
 
 const commentsController = require('./controllers/commentsController.js');
 app.use('/comments', commentsController);

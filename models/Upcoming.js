@@ -18,6 +18,10 @@ const upcomingSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  id: {
+    type: Number,
+    required: true
+  },
   comments: [commentSchema]
 });
 
