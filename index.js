@@ -36,7 +36,7 @@ app.use('/movies', moviesController);
 const upcomingMoviesController = require('./controllers/upcomingController.js');
 app.use('/upcoming', upcomingMoviesController);
 
-const commentsController = require('./controllers/commentsController.js');
+const commentsController = require('./controllers/commentController.js');
 app.use('/comments', commentsController);
 
 //=============================================================================
